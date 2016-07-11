@@ -1,0 +1,654 @@
+// tetin file version 1.1
+// written by ICEM CFD - version 13.0 on Tue Jun 21 17:11:43 2016
+
+set_triangulation_tolerance 0.0099999998
+define_family POINTS tetra_size 0 color 0
+define_family EDGE_CURVES tetra_size 40 color 0
+define_family BOTTOM color 5125117
+define_family TOP color 14693271
+define_family FRONT color 14496666
+define_family RIGHT color 5714940
+define_family LEFT color 12827187
+define_family BACK color 6748211
+define_family FRACTURE0_S internal_wall 1 tetra_size 0.625738 color 14052137
+define_family FRACTURE_CURVE0 internal_wall 1 tetra_size 0.156434 color 0
+define_family INTERNAL_CURVES internal_wall 1 tetra_size 0 color 11087083
+define_family DEACTIVATED internal_wall 1 tetra_size 0 color 12263683
+
+prescribed_point 0.58054900169373 0.79905700683594 0 family FRACTURE_CURVE0 name .p1
+prescribed_point 0.70710700750351 0.70710700750351 0 family FRACTURE0_S name .p1.1
+prescribed_point 0.4539900124073 0.89100700616837 0 family FRACTURE0_S name .p2
+prescribed_point 0.3052119910717 0.9393470287323 0 family FRACTURE_CURVE0 name .p1.2
+prescribed_point 0.4539900124073 0.89100700616837 0 family FRACTURE0_S name .p1.3
+prescribed_point 0.15643399953842 0.98768800497055 0 family FRACTURE0_S name .p2.3
+prescribed_point -2.7755598776686e-017 0.98768800497055 0 family FRACTURE_CURVE0 name .p1.4
+prescribed_point 0.15643399953842 0.98768800497055 0 family FRACTURE0_S name .p1.5
+prescribed_point -0.15643399953842 0.98768800497055 0 family FRACTURE0_S name .p2.5
+prescribed_point -0.3052119910717 0.9393470287323 0 family FRACTURE_CURVE0 name .p1.6
+prescribed_point -0.15643399953842 0.98768800497055 0 family FRACTURE0_S name .p1.7
+prescribed_point -0.4539900124073 0.89100700616837 0 family FRACTURE0_S name .p2.7
+prescribed_point -0.58054900169373 0.79905700683594 0 family FRACTURE_CURVE0 name .p1.8
+prescribed_point -0.4539900124073 0.89100700616837 0 family FRACTURE0_S name .p1.9
+prescribed_point -0.70710700750351 0.70710700750351 0 family FRACTURE0_S name .p2.9
+prescribed_point -0.79905700683594 0.58054900169373 0 family FRACTURE_CURVE0 name .p1.10
+prescribed_point -0.70710700750351 0.70710700750351 0 family FRACTURE0_S name .p1.11
+prescribed_point -0.89100700616837 0.4539900124073 0 family FRACTURE0_S name .p2.11
+prescribed_point -0.9393470287323 0.3052119910717 0 family FRACTURE_CURVE0 name .p1.12
+prescribed_point -0.89100700616837 0.4539900124073 0 family FRACTURE0_S name .p1.13
+prescribed_point -0.98768800497055 0.15643399953842 0 family FRACTURE0_S name .p2.13
+prescribed_point -0.98768800497055 1.1102199806005e-016 0 family FRACTURE_CURVE0 name .p1.14
+prescribed_point -0.98768800497055 0.15643399953842 0 family FRACTURE0_S name .p1.15
+prescribed_point -0.98768800497055 -0.15643399953842 0 family FRACTURE0_S name .p2.15
+prescribed_point -0.9393470287323 -0.3052119910717 0 family FRACTURE_CURVE0 name .p1.16
+prescribed_point -0.98768800497055 -0.15643399953842 0 family FRACTURE0_S name .p1.17
+prescribed_point -0.89100700616837 -0.4539900124073 0 family FRACTURE0_S name .p2.17
+prescribed_point -0.79905700683594 -0.58054900169373 0 family FRACTURE_CURVE0 name .p1.18
+prescribed_point -0.89100700616837 -0.4539900124073 0 family FRACTURE0_S name .p1.19
+prescribed_point -0.70710700750351 -0.70710700750351 0 family FRACTURE0_S name .p2.19
+prescribed_point -0.58054900169373 -0.79905700683594 0 family FRACTURE_CURVE0 name .p1.20
+prescribed_point -0.70710700750351 -0.70710700750351 0 family FRACTURE0_S name .p1.21
+prescribed_point -0.4539900124073 -0.89100700616837 0 family FRACTURE0_S name .p2.21
+prescribed_point -0.3052119910717 -0.9393470287323 0 family FRACTURE_CURVE0 name .p1.22
+prescribed_point -0.4539900124073 -0.89100700616837 0 family FRACTURE0_S name .p1.23
+prescribed_point -0.15643399953842 -0.98768800497055 0 family FRACTURE0_S name .p2.23
+prescribed_point 5.5511197553372e-017 -0.98768800497055 0 family FRACTURE_CURVE0 name .p1.24
+prescribed_point -0.15643399953842 -0.98768800497055 0 family FRACTURE0_S name .p1.25
+prescribed_point 0.15643399953842 -0.98768800497055 0 family FRACTURE0_S name .p2.25
+prescribed_point 0.3052119910717 -0.9393470287323 0 family FRACTURE_CURVE0 name .p1.26
+prescribed_point 0.15643399953842 -0.98768800497055 0 family FRACTURE0_S name .p1.27
+prescribed_point 0.4539900124073 -0.89100700616837 0 family FRACTURE0_S name .p2.27
+prescribed_point 0.58054900169373 -0.79905700683594 0 family FRACTURE_CURVE0 name .p1.28
+prescribed_point 0.4539900124073 -0.89100700616837 0 family FRACTURE0_S name .p1.29
+prescribed_point 0.70710700750351 -0.70710700750351 0 family FRACTURE0_S name .p2.29
+prescribed_point 0.79905700683594 -0.58054900169373 0 family FRACTURE_CURVE0 name .p1.30
+prescribed_point 0.70710700750351 -0.70710700750351 0 family FRACTURE0_S name .p1.31
+prescribed_point 0.89100700616837 -0.4539900124073 0 family FRACTURE0_S name .p2.31
+prescribed_point 0.9393470287323 -0.3052119910717 0 family FRACTURE_CURVE0 name .p1.32
+prescribed_point 0.89100700616837 -0.4539900124073 0 family FRACTURE0_S name .p1.33
+prescribed_point 0.98768800497055 -0.15643399953842 0 family FRACTURE0_S name .p2.33
+prescribed_point 0.98768800497055 2.2204500197173e-016 0 family FRACTURE_CURVE0 name .p1.34
+prescribed_point 0.98768800497055 -0.15643399953842 0 family FRACTURE0_S name .p1.35
+prescribed_point 0.98768800497055 0.15643399953842 0 family FRACTURE0_S name .p2.35
+prescribed_point 0.9393470287323 0.3052119910717 0 family FRACTURE_CURVE0 name .p1.36
+prescribed_point 0.98768800497055 0.15643399953842 0 family FRACTURE0_S name .p1.37
+prescribed_point 0.89100700616837 0.4539900124073 0 family FRACTURE0_S name .p2.37
+prescribed_point 0.79905700683594 0.58054900169373 0 family FRACTURE_CURVE0 name .p1.38
+prescribed_point 0.89100700616837 0.4539900124073 0 family FRACTURE0_S name .p1.39
+prescribed_point 0.70710700750351 0.70710700750351 0 family FRACTURE0_S name .p2.39
+prescribed_point -10 10 -10 family EDGE_CURVES name pnt.60
+prescribed_point -10 -10 -10 family EDGE_CURVES name pnt.61
+prescribed_point -10 -10 -10 family EDGE_CURVES name pnt.62
+prescribed_point 10 -10 -10 family EDGE_CURVES name pnt.63
+prescribed_point 10 -10 -10 family EDGE_CURVES name pnt.64
+prescribed_point 10 10 -10 family EDGE_CURVES name pnt.65
+prescribed_point 10 10 -10 family EDGE_CURVES name pnt.66
+prescribed_point -10 10 -10 family EDGE_CURVES name pnt.67
+prescribed_point -10 10 10 family EDGE_CURVES name pnt.68
+prescribed_point -10 -10 10 family EDGE_CURVES name pnt.69
+prescribed_point -10 -10 10 family EDGE_CURVES name pnt.70
+prescribed_point 10 -10 10 family EDGE_CURVES name pnt.71
+prescribed_point 10 -10 10 family EDGE_CURVES name pnt.72
+prescribed_point 10 10 10 family EDGE_CURVES name pnt.73
+prescribed_point 10 10 10 family EDGE_CURVES name pnt.74
+prescribed_point -10 10 10 family EDGE_CURVES name pnt.75
+prescribed_point -10 -10 -10 family EDGE_CURVES name pnt.76
+prescribed_point 10 -10 -10 family EDGE_CURVES name pnt.77
+prescribed_point 10 -10 -10 family EDGE_CURVES name pnt.78
+prescribed_point 10 -10 10 family EDGE_CURVES name pnt.79
+prescribed_point 10 -10 10 family EDGE_CURVES name pnt.80
+prescribed_point -10 -10 10 family EDGE_CURVES name pnt.81
+prescribed_point -10 -10 10 family EDGE_CURVES name pnt.82
+prescribed_point -10 -10 -10 family EDGE_CURVES name pnt.83
+prescribed_point 10 10 -10 family EDGE_CURVES name pnt.84
+prescribed_point 10 -10 -10 family EDGE_CURVES name pnt.85
+prescribed_point 10 -10 -10 family EDGE_CURVES name pnt.86
+prescribed_point 10 -10 10 family EDGE_CURVES name pnt.87
+prescribed_point 10 -10 10 family EDGE_CURVES name pnt.88
+prescribed_point 10 10 10 family EDGE_CURVES name pnt.89
+prescribed_point 10 10 10 family EDGE_CURVES name pnt.90
+prescribed_point 10 10 -10 family EDGE_CURVES name pnt.91
+prescribed_point -10 10 -10 family EDGE_CURVES name pnt.92
+prescribed_point -10 -10 -10 family EDGE_CURVES name pnt.93
+prescribed_point -10 -10 -10 family EDGE_CURVES name pnt.94
+prescribed_point -10 -10 10 family EDGE_CURVES name pnt.95
+prescribed_point -10 -10 10 family EDGE_CURVES name pnt.96
+prescribed_point -10 10 10 family EDGE_CURVES name pnt.97
+prescribed_point -10 10 10 family EDGE_CURVES name pnt.98
+prescribed_point -10 10 -10 family EDGE_CURVES name pnt.99
+prescribed_point 10 10 -10 family EDGE_CURVES name pnt.100
+prescribed_point -10 10 -10 family EDGE_CURVES name pnt.101
+prescribed_point -10 10 -10 family EDGE_CURVES name pnt.102
+prescribed_point -10 10 10 family EDGE_CURVES name pnt.103
+prescribed_point -10 10 10 family EDGE_CURVES name pnt.104
+prescribed_point 10 10 10 family EDGE_CURVES name pnt.105
+prescribed_point 10 10 10 family EDGE_CURVES name pnt.106
+prescribed_point 10 10 -10 family EDGE_CURVES name pnt.107
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1
+unstruct_curve n_points 2 n_edges 1
+0.70710701 0.70710701 0
+0.45399001 0.89100701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.1
+unstruct_curve n_points 2 n_edges 1
+0.45399001 0.89100701 0
+0.156434 0.987688 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.2
+unstruct_curve n_points 2 n_edges 1
+0.156434 0.987688 0
+-0.156434 0.987688 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.3
+unstruct_curve n_points 2 n_edges 1
+-0.156434 0.987688 0
+-0.45399001 0.89100701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.4
+unstruct_curve n_points 2 n_edges 1
+-0.45399001 0.89100701 0
+-0.70710701 0.70710701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.5
+unstruct_curve n_points 2 n_edges 1
+-0.70710701 0.70710701 0
+-0.89100701 0.45399001 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.6
+unstruct_curve n_points 2 n_edges 1
+-0.89100701 0.45399001 0
+-0.987688 0.156434 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.7
+unstruct_curve n_points 2 n_edges 1
+-0.987688 0.156434 0
+-0.987688 -0.156434 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.8
+unstruct_curve n_points 2 n_edges 1
+-0.987688 -0.156434 0
+-0.89100701 -0.45399001 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.9
+unstruct_curve n_points 2 n_edges 1
+-0.89100701 -0.45399001 0
+-0.70710701 -0.70710701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.10
+unstruct_curve n_points 2 n_edges 1
+-0.70710701 -0.70710701 0
+-0.45399001 -0.89100701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.11
+unstruct_curve n_points 2 n_edges 1
+-0.45399001 -0.89100701 0
+-0.156434 -0.987688 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.12
+unstruct_curve n_points 2 n_edges 1
+-0.156434 -0.987688 0
+0.156434 -0.987688 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.13
+unstruct_curve n_points 2 n_edges 1
+0.156434 -0.987688 0
+0.45399001 -0.89100701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.14
+unstruct_curve n_points 2 n_edges 1
+0.45399001 -0.89100701 0
+0.70710701 -0.70710701 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.15
+unstruct_curve n_points 2 n_edges 1
+0.70710701 -0.70710701 0
+0.89100701 -0.45399001 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.16
+unstruct_curve n_points 2 n_edges 1
+0.89100701 -0.45399001 0
+0.987688 -0.156434 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.17
+unstruct_curve n_points 2 n_edges 1
+0.987688 -0.156434 0
+0.987688 0.156434 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.18
+unstruct_curve n_points 2 n_edges 1
+0.987688 0.156434 0
+0.89100701 0.45399001 0
+0 1
+define_curve family FRACTURE_CURVE0 tetra_size 0.156434 name .c1.19
+unstruct_curve n_points 2 n_edges 1
+0.89100701 0.45399001 0
+0.70710701 0.70710701 0
+0 1
+define_curve family EDGE_CURVES tetra_size 40 name surface.0e20
+bspline
+2,2,0
+0,0,20,20
+-10,10,-10
+-10,-10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.0e21
+bspline
+2,2,0
+0,0,20,20
+-10,-10,-10
+10,-10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.0e22
+bspline
+2,2,0
+-20,-20,-0,-0
+10,-10,-10
+10,10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.0e23
+bspline
+2,2,0
+-20,-20,-0,-0
+10,10,-10
+-10,10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.1e24
+bspline
+2,2,0
+0,0,20,20
+-10,10,10
+-10,-10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.1e25
+bspline
+2,2,0
+0,0,20,20
+-10,-10,10
+10,-10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.1e26
+bspline
+2,2,0
+-20,-20,-0,-0
+10,-10,10
+10,10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.1e27
+bspline
+2,2,0
+-20,-20,-0,-0
+10,10,10
+-10,10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.2e28
+bspline
+2,2,0
+0,0,20,20
+-10,-10,-10
+10,-10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.2e29
+bspline
+2,2,0
+0,0,20,20
+10,-10,-10
+10,-10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.2e30
+bspline
+2,2,0
+-20,-20,-0,-0
+10,-10,10
+-10,-10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.2e31
+bspline
+2,2,0
+-20,-20,-0,-0
+-10,-10,10
+-10,-10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.3e32
+bspline
+2,2,0
+0,0,20,20
+10,10,-10
+10,-10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.3e33
+bspline
+2,2,0
+0,0,20,20
+10,-10,-10
+10,-10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.3e34
+bspline
+2,2,0
+-20,-20,-0,-0
+10,-10,10
+10,10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.3e35
+bspline
+2,2,0
+-20,-20,-0,-0
+10,10,10
+10,10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.4e36
+bspline
+2,2,0
+0,0,20,20
+-10,10,-10
+-10,-10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.4e37
+bspline
+2,2,0
+0,0,20,20
+-10,-10,-10
+-10,-10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.4e38
+bspline
+2,2,0
+-20,-20,-0,-0
+-10,-10,10
+-10,10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.4e39
+bspline
+2,2,0
+-20,-20,-0,-0
+-10,10,10
+-10,10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.5e40
+bspline
+2,2,0
+0,0,20,20
+10,10,-10
+-10,10,-10
+define_curve family EDGE_CURVES tetra_size 40 name surface.5e41
+bspline
+2,2,0
+0,0,20,20
+-10,10,-10
+-10,10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.5e42
+bspline
+2,2,0
+-20,-20,-0,-0
+-10,10,10
+10,10,10
+define_curve family EDGE_CURVES tetra_size 40 name surface.5e43
+bspline
+2,2,0
+-20,-20,-0,-0
+10,10,10
+10,10,-10
+define_surface name surface.0 family BOTTOM tetra_size 1e+010
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   surface.0e20
+polyline n_points 2
+0,0
+20,0
+coedge 3dcurve   surface.0e21
+polyline n_points 2
+20,0
+20,20
+coedge 3dcurve   surface.0e22
+polyline n_points 2
+20,20
+0,20
+coedge 3dcurve   surface.0e23
+polyline n_points 2
+0,20
+0,0
+bspline
+2,2,2,2,0
+0,0,20,20
+0,0,20,20
+-10,10,-10
+-10,-10,-10
+10,10,-10
+10,-10,-10
+define_surface name surface.1 family TOP tetra_size 1e+010
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   surface.1e24
+polyline n_points 2
+0,0
+20,0
+coedge 3dcurve   surface.1e25
+polyline n_points 2
+20,0
+20,20
+coedge 3dcurve   surface.1e26
+polyline n_points 2
+20,20
+0,20
+coedge 3dcurve   surface.1e27
+polyline n_points 2
+0,20
+0,0
+bspline
+2,2,2,2,0
+0,0,20,20
+0,0,20,20
+-10,10,10
+-10,-10,10
+10,10,10
+10,-10,10
+define_surface name surface.2 family FRONT tetra_size 1e+010
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   surface.2e28
+polyline n_points 2
+0,0
+20,0
+coedge 3dcurve   surface.2e29
+polyline n_points 2
+20,0
+20,20
+coedge 3dcurve   surface.2e30
+polyline n_points 2
+20,20
+0,20
+coedge 3dcurve   surface.2e31
+polyline n_points 2
+0,20
+0,0
+bspline
+2,2,2,2,0
+0,0,20,20
+0,0,20,20
+-10,-10,-10
+10,-10,-10
+-10,-10,10
+10,-10,10
+define_surface name surface.3 family RIGHT tetra_size 1e+010
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   surface.3e32
+polyline n_points 2
+0,0
+20,0
+coedge 3dcurve   surface.3e33
+polyline n_points 2
+20,0
+20,20
+coedge 3dcurve   surface.3e34
+polyline n_points 2
+20,20
+0,20
+coedge 3dcurve   surface.3e35
+polyline n_points 2
+0,20
+0,0
+bspline
+2,2,2,2,0
+0,0,20,20
+0,0,20,20
+10,10,-10
+10,-10,-10
+10,10,10
+10,-10,10
+define_surface name surface.4 family LEFT tetra_size 1e+010
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   surface.4e36
+polyline n_points 2
+0,0
+20,0
+coedge 3dcurve   surface.4e37
+polyline n_points 2
+20,0
+20,20
+coedge 3dcurve   surface.4e38
+polyline n_points 2
+20,20
+0,20
+coedge 3dcurve   surface.4e39
+polyline n_points 2
+0,20
+0,0
+bspline
+2,2,2,2,0
+0,0,20,20
+0,0,20,20
+-10,10,-10
+-10,-10,-10
+-10,10,10
+-10,-10,10
+define_surface name surface.5 family BACK tetra_size 1e+010
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   surface.5e40
+polyline n_points 2
+0,0
+20,0
+coedge 3dcurve   surface.5e41
+polyline n_points 2
+20,0
+20,20
+coedge 3dcurve   surface.5e42
+polyline n_points 2
+20,20
+0,20
+coedge 3dcurve   surface.5e43
+polyline n_points 2
+0,20
+0,0
+bspline
+2,2,2,2,0
+0,0,20,20
+0,0,20,20
+10,10,-10
+-10,10,-10
+10,10,10
+-10,10,10
+define_surface name srfF family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.70710701 0.70710701 0
+0.45399001 0.89100701 0
+0 0 0
+0 1 2
+define_surface name srfF.7 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.45399001 0.89100701 0
+0.156434 0.987688 0
+0 0 0
+0 1 2
+define_surface name srfF.8 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.156434 0.987688 0
+-0.156434 0.987688 0
+0 0 0
+0 1 2
+define_surface name srfF.9 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.156434 0.987688 0
+-0.45399001 0.89100701 0
+0 0 0
+0 1 2
+define_surface name srfF.10 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.45399001 0.89100701 0
+-0.70710701 0.70710701 0
+0 0 0
+0 1 2
+define_surface name srfF.11 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.70710701 0.70710701 0
+-0.89100701 0.45399001 0
+0 0 0
+0 1 2
+define_surface name srfF.12 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.89100701 0.45399001 0
+-0.987688 0.156434 0
+0 0 0
+0 1 2
+define_surface name srfF.13 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.987688 0.156434 0
+-0.987688 -0.156434 0
+0 0 0
+0 1 2
+define_surface name srfF.14 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.987688 -0.156434 0
+-0.89100701 -0.45399001 0
+0 0 0
+0 1 2
+define_surface name srfF.15 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.89100701 -0.45399001 0
+-0.70710701 -0.70710701 0
+0 0 0
+0 1 2
+define_surface name srfF.16 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.70710701 -0.70710701 0
+-0.45399001 -0.89100701 0
+0 0 0
+0 1 2
+define_surface name srfF.17 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.45399001 -0.89100701 0
+-0.156434 -0.987688 0
+0 0 0
+0 1 2
+define_surface name srfF.18 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+-0.156434 -0.987688 0
+0.156434 -0.987688 0
+0 0 0
+0 1 2
+define_surface name srfF.19 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.156434 -0.987688 0
+0.45399001 -0.89100701 0
+0 0 0
+0 1 2
+define_surface name srfF.20 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.45399001 -0.89100701 0
+0.70710701 -0.70710701 0
+0 0 0
+0 1 2
+define_surface name srfF.21 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.70710701 -0.70710701 0
+0.89100701 -0.45399001 0
+0 0 0
+0 1 2
+define_surface name srfF.22 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.89100701 -0.45399001 0
+0.987688 -0.156434 0
+0 0 0
+0 1 2
+define_surface name srfF.23 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.987688 -0.156434 0
+0.987688 0.156434 0
+0 0 0
+0 1 2
+define_surface name srfF.24 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.987688 0.156434 0
+0.89100701 0.45399001 0
+0 0 0
+0 1 2
+define_surface name srfF.25 family FRACTURE0_S tetra_size 0.62573802
+unstruct_mesh n_points 3 n_triangles 1
+0.89100701 0.45399001 0
+0.70710701 0.70710701 0
+0 0 0
+0 1 2
+affix 0
+define_model 1e+010 fast_transition reference_size 1
+return
