@@ -17,7 +17,7 @@ SIF_plot <- function(filename){
   num_of_steps <- max(data$'Step') + 1
   colours <- rainbow(num_of_fractures)
   
-  first_step <- subset(data, Step == 0)
+  # first_step <- subset(data, Step == 0)
   
   # Creates 2x2 matrix for four figures drawn below (Type I, II, III, and G values).
   par(mfrow=c(2,2))
@@ -26,4 +26,11 @@ SIF_plot <- function(filename){
   plot(data$'TipNr', data$'KII', main = paste("KII"), xlab = 'Tip Number', ylab= "KII SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
   plot(data$'TipNr', data$'KIII', main = paste("KIII"), xlab = 'Tip Number', ylab= "KIIIscale_fill_hue(l=40) SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
   plot(data$'TipNr', data$'G', main = paste("G"), xlab = 'Tip Number', ylab= "G Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
+
+  data_means <- aggregate(data[,-2], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "mean")
+  data_mins <- aggregate(data[,-2], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "min")
+  data_maxs <- aggregate(data[,-2], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "max")
+  print(head(data_means))
+  print(head(data_mins))
+  
   }
