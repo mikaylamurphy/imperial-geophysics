@@ -1,4 +1,4 @@
-#use three classes to group objects
+# Use three classes to group objects.
 
 class curve:
 	family = 'undefined'
