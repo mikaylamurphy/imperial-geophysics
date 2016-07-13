@@ -110,10 +110,10 @@ SIF_plot <- function(filename){
   par(mfrow=c(2,2))
   
   # Difference in KI, KII, KIII, and G values for each step from previous step at each tip graphs.
-  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'KI', main = paste("Difference in KI values from Previous Step"), xlab = 'Tip Number', ylab= "Delta KI SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
-  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'KII', main = paste("Difference in KII values from Previous Step"), xlab = 'Tip Number', ylab= "Delta KII SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
-  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'KIII', main = paste("Difference in KIII values from Previous Step"), xlab = 'Tip Number', ylab= "Delta KIII SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
-  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'G', main = paste("Difference in G values from Previous Step"), xlab = 'Tip Number', ylab= "Delta G Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
+  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'KI', main = paste("Difference in KI values from \nPrevious Step"), xlab = 'Tip Number', ylab= "Delta KI SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
+  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'KII', main = paste("Difference in KII values from \nPrevious Step"), xlab = 'Tip Number', ylab= "Delta KII SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
+  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'KIII', main = paste("Difference in KIII values from \nPrevious Step"), xlab = 'Tip Number', ylab= "Delta KIII SIF Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
+  plot(data_diff_from_prev$'TipNr', data_diff_from_prev$'G', main = paste("Difference in G values from \nPrevious Step"), xlab = 'Tip Number', ylab= "Delta G Value", pch= 20, col= muted(colours[data$'FractureNum'], l = ((data$'Step'+1)/num_of_steps)*100))
   
   # Stops writing to pdf.
   dev.off()
