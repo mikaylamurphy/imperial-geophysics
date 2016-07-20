@@ -32,24 +32,6 @@ SIF_plot <- function(filename, SA_filename){
   num_of_fractures <- length(unique(data$'FractureNum'))
   num_of_steps <- length(unique(data$'Step'))
   
-  # # Calculating max number of tips per fracture at final step.
-  # max_tips_per_fracture <- data[data$Step == (num_of_steps - 1),]
-  # max_tips_per_fracture <- aggregate(max_tips_per_fracture[,3], by = list(FractureNum = max_tips_per_fracture$'FractureNum'), FUN = "max")
-  # colnames(max_tips_per_fracture) <- c('FractureNum', 'MaxTipNr')
-  # 
-  # # Calculating maximum radius of fracture at final step.
-  # fractureRadii <- data[data$Step == (num_of_steps - 1) & data$TipNr < 2,]
-  # fractureRadii <- aggregate(fractureRadii[,c(-2, -14)], by = list(FractureNum = fractureRadii$'FractureNum'), FUN = "diff")
-  # fractureRadii$'HalfDistance' <- sqrt(fractureRadii$'TipX'^2 + fractureRadii$'TipY'^2 + fractureRadii$'TipZ'^2) / 2
-  # fractureRadii$'Angle'[fractureRadii$'FractureNum' %in% max_tips_per_fracture$'FractureNum'] <- (2 * pi)/ max_tips_per_fracture$'MaxTipNr'
-  # fractureRadii$'Radius' <- fractureRadii$'HalfDistance' / sin(fractureRadii$'Angle')
-  # 
-  # # Calculating max K value based on formula from Nejati's thesis.
-  # fractureRadii$'MaxKValue' <- 2 * 10^11 * sqrt(fractureRadii$'Radius' / pi)
-  # 
-  # # Removing all columns except FractureNum and Max K Value.
-  # fractureRadii <- fractureRadii[ ,c(1,17)]
-  
   # Eliminate rows with K or G values above threshold value of 1e+11 (100 GPa, 10x Young's Modulus) and KI values below zero.
   maxKvalue <- 1e+11
   data <- subset(data, abs(data$'KI') < maxKvalue & abs(data$'KII') < maxKvalue & abs(data$'KIII') < maxKvalue & abs(data$'G' < maxKvalue))
