@@ -14,6 +14,10 @@ SIF_plot <- function(filename){
   # Converting factor values in data frame to numeric values.
   data[,-2] <- lapply(data[,-2], function(x) as.numeric(as.character(x)))
   
+  # Making steps consecutive and starting at zero.
+  uniqueSteps <- unique(data$Step)
+  data$Step <- sapply(data$Step, function(x) {match(x, uniqueSteps) - 1})
+  
   # Preparing symbols and their colors & sizes for plot.
   num_of_fractures <- length(unique(data$'FractureNum'))
   num_of_steps <- length(unique(data$'Step'))
@@ -22,7 +26,7 @@ SIF_plot <- function(filename){
   colours[1] <- 'blue'
   colours[num_of_steps] <- 'red'
   
-  # Saves plots as pdf.
+  # Saves plots as pdf with title as original file name.
   filename_no_ext <- substr(filename, 1, nchar(filename)-4)
   pdf_name <- paste(filename_no_ext, '_plots.pdf')
   pdf(file = pdf_name, title = pdf_name)
@@ -74,7 +78,10 @@ SIF_plot <- function(filename){
   # Calculating difference from step 0.
 
   # Number of rows at step 0.
-  num_at_step_0  <- num_of_fractures * (max(data$'TipNr'+1))
+  print(num_of_fractures)
+  print(max(data$'TipNr'))
+  num_at_step_0  <- num_of_fractures * (max(data$'TipNr' + 1))
+  print(num_at_step_0)
 
   # Creating data frame with only Step 0 repeated to subtract from.
   data_at_step_0 <- do.call("rbind", replicate(num_of_steps, subset(data[1:num_at_step_0,]), simplify = FALSE))
@@ -84,6 +91,8 @@ SIF_plot <- function(filename){
   data_at_step_0$'TipNr' <- 0
 
   # Subtracting the two data frames.
+  print(dim(data[,-2]))
+  print(dim(data_at_step_0[,-2]))
   data_diff_from_step_0 <- data[,-2] - data_at_step_0[,-2]
 
   # Creates 2x2 matrix for four difference from step 0 figures drawn below (Type I, II, III, and G values).
@@ -108,7 +117,8 @@ SIF_plot <- function(filename){
 
   # Subtracting two data frames to find difference.
   data_diff_from_prev <- subtract_left[,-2] - subtract_right[,-2]
-  data_diff_from_prev$'Step'[data_diff_from_prev$'Step' == 19] <- 20
+  print(num_of_steps)
+  data_diff_from_prev$'Step'[data_diff_from_prev$'Step' == num_of_steps - 1] <- 20
   
   # Creates 2x2 matrix for four difference from previous step figures drawn below (Type I, II, III, and G values).
   par(mfrow=c(2,2))
