@@ -109,13 +109,21 @@ SIF_plot <- function(filename, SA_filename){
     fracture_names <- append(fracture_names, paste('Fracture', fracture))
   }
   
-  # Raw data graphs.
+  # Raw data graphs scaled automatically.
   plot(data$'SurfaceArea', data$'KI', main = paste("KI"), xlab = 'Surface Area', ylab= "KI SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
   legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
   plot(data$'SurfaceArea', data$'KII', main = paste("KII"), xlab = 'Surface Area', ylab= "KII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
   plot(data$'SurfaceArea', data$'KIII', main = paste("KIII"), xlab = 'Surface Area', ylab= "KIII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
   plot(data$'SurfaceArea', data$'G', main = paste("G"), xlab = 'Surface Area', ylab= "G Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
   mtext(plot_name, adj=0.5, side=3, outer=TRUE)
+  
+  # Raw data graphs scaled manually to be equivalent throughout data files.
+  plot(data$'SurfaceArea', data$'KI', main = paste("KI"), xlab = 'Surface Area', ylab= "KI SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(-10e09, 10e10), xlim= c(0, 30))
+  legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
+  plot(data$'SurfaceArea', data$'KII', main = paste("KII"), xlab = 'Surface Area', ylab= "KII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(-10e09, 10e10), xlim= c(0, 30))
+  plot(data$'SurfaceArea', data$'KIII', main = paste("KIII"), xlab = 'Surface Area', ylab= "KIII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(-10e09, 10e10), xlim= c(0, 30))
+  plot(data$'SurfaceArea', data$'G', main = paste("G"), xlab = 'Surface Area', ylab= "G Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(-10e09, 10e10), xlim= c(0, 30))
+  
   
   # Calculates mean SIF values(KI, KII, KIII, and G). 
   data_means <- aggregate(data[,c(-3, -15, -18)], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "mean")
