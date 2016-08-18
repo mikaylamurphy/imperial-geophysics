@@ -78,10 +78,7 @@ SIF_plot <- function(filename){
   # Calculating difference from step 0.
 
   # Number of rows at step 0.
-  print(num_of_fractures)
-  print(max(data$'TipNr'))
   num_at_step_0  <- num_of_fractures * (max(data$'TipNr' + 1))
-  print(num_at_step_0)
 
   # Creating data frame with only Step 0 repeated to subtract from.
   data_at_step_0 <- do.call("rbind", replicate(num_of_steps, subset(data[1:num_at_step_0,]), simplify = FALSE))
