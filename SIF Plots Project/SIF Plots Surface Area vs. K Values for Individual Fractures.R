@@ -101,10 +101,78 @@ SIF_plot <- function(filename, SA_filename){
   # Adds main title to document.
   mtext(plot_name, adj=0.5, side=3, outer=TRUE)
   
-  # Calculating data statistics (mean, min, max).
+  # Calculating mean SIF values (KI, KII, KIII, and G).
   data_means <- aggregate(data[,c(-3, -15)], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "mean")
+  
+  # Calculates min SIF values (KI, KII, KIII, and G).
   data_mins <- aggregate(data[,c(-3, -15)], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "min")
-  data_maxs <- aggregate(data[,c(-3,-15)], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "max")
+  
+  # Adds surface area value in original data set associated with the min KI value to data_mins dataframe. If multiple matching values are found, the mean is used.
+  data_mins$'KI.SA' <- apply(data_mins, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    KI1 <- as.numeric(row[9])
+    return(mean(data$'SurfaceArea'[which(data$'KI' == KI1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+  
+  # Adds surface area value in original data set associated with the min KII value to data_mins dataframe. If multiple matching values are found, the mean is used.
+  data_mins$'KII.SA' <- apply(data_mins, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    KII1 <- as.numeric(row[10])
+    return(mean(data$'SurfaceArea'[which(data$'KII' == KII1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+  
+  # Adds surface area value in original data set associated with the min KIII value to data_mins dataframe. If multiple matching values are found, the mean is used.
+  data_mins$'KIII.SA' <- apply(data_mins, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    KIII1 <- as.numeric(row[11])
+    return(mean(data$'SurfaceArea'[which(data$'KIII' == KIII1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+  
+  # Adds surface area value in original data set associated with the min G value to data_mins dataframe. If multiple matching values are found, the mean is used.
+  data_mins$'G.SA' <- apply(data_mins, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    G1 <- as.numeric(row[12])
+    return(mean(data$'SurfaceArea'[which(data$'G' == G1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+
+  # Calculates max SIF values (KI, KII, KIII, and G).
+  data_maxs <- aggregate(data[,c(-3, -15, -18)], by = list(TipNr = data$'TipNr', FractureNum = data$'FractureNum'), FUN = "max")
+  
+  # Adds surface area value in original data set associated with the max KI value to data_maxs dataframe. If multiple matching values are found, the mean is used.
+  data_maxs$'KI.SA' <- apply(data_maxs, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    KI1 <- as.numeric(row[9])
+    return(mean(data$'SurfaceArea'[which(data$'KI' == KI1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+  
+  # Adds surface area value in original data set associated with the max KII value to data_maxs dataframe. If multiple matching values are found, the mean is used.
+  data_maxs$'KII.SA' <- apply(data_maxs, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    KII1 <- as.numeric(row[10])
+    return(mean(data$'SurfaceArea'[which(data$'KII' == KII1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+  
+  # Adds surface area value in original data set associated with the max KIII value to data_maxs dataframe. If multiple matching values are found, the mean is used.
+  data_maxs$'KIII.SA' <- apply(data_maxs, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    KIII1 <- as.numeric(row[11])
+    return(mean(data$'SurfaceArea'[which(data$'KIII' == KIII1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
+  
+  # Adds surface area value in original data set associated with the max G value to data_maxs dataframe. If multiple matching values are found, the mean is used.
+  data_maxs$'G.SA' <- apply(data_maxs, 1, function(row){
+    TipNr1 <- as.numeric(row[1])
+    FractureNum1 <- as.numeric(row[2])
+    G1 <- as.numeric(row[12])
+    return(mean(data$'SurfaceArea'[which(data$'G' == G1 & data$'FractureNum' == FractureNum1 & data$'TipNr' == TipNr1)]))
+  })
   
   # Creates matrix for mean KI figures drawn below.
   par(mfrow=c(ceiling(length(fractures) / 2), 2))
@@ -148,7 +216,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a min KI vs. min surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_mins, data_mins$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'KI', main = paste("Fracture", fracture, "KI Minimum Value"), xlab = 'Min Surface Area', ylab= "KI Min SIF Value", pch= 20)
+    plot(data_subset$'KI.SA', data_subset$'KI', main = paste("Fracture", fracture, "KI Minimum Value"), xlab = 'Min Surface Area', ylab= "KI Min SIF Value", pch= 20)
   }
 
   # Creates matrix for min KII figures drawn below.
@@ -157,7 +225,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a min KII vs. min surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_mins, data_mins$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'KII', main = paste("Fracture", fracture, "KII Minimum Value"), xlab = 'Min Surface Area', ylab= "KII Min SIF Value", pch= 20)
+    plot(data_subset$'KII.SA', data_subset$'KII', main = paste("Fracture", fracture, "KII Minimum Value"), xlab = 'Min Surface Area', ylab= "KII Min SIF Value", pch= 20)
   }
   
   # Creates matrix for min KIII figures drawn below.
@@ -166,7 +234,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a min KIII vs. min surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_mins, data_mins$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'KIII', main = paste("Fracture", fracture, "KIII Minimum Value"), xlab = 'Min Surface Area', ylab= "KIII Min SIF Value", pch= 20)
+    plot(data_subset$'KIII.SA', data_subset$'KIII', main = paste("Fracture", fracture, "KIII Minimum Value"), xlab = 'Min Surface Area', ylab= "KIII Min SIF Value", pch= 20)
   }
   
   # Creates matrix for min G value figures drawn below.
@@ -175,7 +243,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a min G value vs. min surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_mins, data_mins$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'G', main = paste("Fracture", fracture, "Minimum G Value"), xlab = 'Min Surface Area', ylab= "Min G Value", pch= 20)
+    plot(data_subset$'G.SA', data_subset$'G', main = paste("Fracture", fracture, "Minimum G Value"), xlab = 'Min Surface Area', ylab= "Min G Value", pch= 20)
   }
  
   # Creates matrix for max KI figures drawn below.
@@ -184,7 +252,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a max KI vs. max surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_maxs, data_maxs$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'KI', main = paste("Fracture", fracture, "KI Maximum Value"), xlab = 'Max Surface Area', ylab= "KI Max SIF Value", pch= 20)
+    plot(data_subset$'KI.SA', data_subset$'KI', main = paste("Fracture", fracture, "KI Maximum Value"), xlab = 'Max Surface Area', ylab= "KI Max SIF Value", pch= 20)
   }
   
   # Creates matrix for max KII figures drawn below.
@@ -193,7 +261,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a max KII vs. max surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_maxs, data_maxs$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'KII', main = paste("Fracture", fracture, "KII Maximum Value"), xlab = 'Max Surface Area', ylab= "KII Max SIF Value", pch= 20)
+    plot(data_subset$'KII.SA', data_subset$'KII', main = paste("Fracture", fracture, "KII Maximum Value"), xlab = 'Max Surface Area', ylab= "KII Max SIF Value", pch= 20)
   }
   
   # Creates matrix for max KIII figures drawn below.
@@ -202,7 +270,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a max KI vs. max surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_maxs, data_maxs$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'KIII', main = paste("Fracture", fracture, "KIII Maximum Value"), xlab = 'Max Surface Area', ylab= "KIII Max SIF Value", pch= 20)
+    plot(data_subset$'KIII.SA', data_subset$'KIII', main = paste("Fracture", fracture, "KIII Maximum Value"), xlab = 'Max Surface Area', ylab= "KIII Max SIF Value", pch= 20)
   }
   
   # Creates matrix for max G value figures drawn below.
@@ -211,7 +279,7 @@ SIF_plot <- function(filename, SA_filename){
   # Iterates through fractures by drawing a max G value vs. max surface area plot for each fracture.
   for (fracture in fractures){
     data_subset <- subset(data_maxs, data_maxs$'FractureNum' == fracture)
-    plot(data_subset$'SurfaceArea', data_subset$'G', main = paste("Fracture", fracture, "Maximum G Value"), xlab = 'Max Surface Area', ylab= "Max G Value", pch= 20)
+    plot(data_subset$'G.SA', data_subset$'G', main = paste("Fracture", fracture, "Maximum G Value"), xlab = 'Max Surface Area', ylab= "Max G Value", pch= 20)
   }
 
   # Stops writing to pdf.
