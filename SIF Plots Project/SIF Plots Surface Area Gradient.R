@@ -20,7 +20,8 @@ SIF_plot <- function(filename, SA_filename){
 
   # Converting factor values in data frame to numeric values.
   data[,-2] <- lapply(data[,-2], function(x) as.numeric(as.character(x)))
-  
+  row.has.na <- apply(data, 1, function(x) {any(is.na(x))} )
+
   # Making steps consecutive and starting at zero.
   uniqueSteps <- unique(data$Step)
   data$'Step' <- sapply(data$'Step', function(x) {match(x, uniqueSteps) - 1})
@@ -74,7 +75,7 @@ SIF_plot <- function(filename, SA_filename){
   
   # Raw data graphs scaled automatically.
   plot(data$'SurfaceArea', data$'KI', main = paste("KI"), xlab = 'Surface Area', ylab= "KI SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
-  legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
+  #legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
   plot(data$'SurfaceArea', data$'KII', main = paste("KII"), xlab = 'Surface Area', ylab= "KII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
   plot(data$'SurfaceArea', data$'KIII', main = paste("KIII"), xlab = 'Surface Area', ylab= "KIII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
   plot(data$'SurfaceArea', data$'G', main = paste("G"), xlab = 'Surface Area', ylab= "G Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea')
@@ -82,7 +83,7 @@ SIF_plot <- function(filename, SA_filename){
   
   # Raw data graphs scaled manually to be equivalent throughout data files.
   plot(data$'SurfaceArea', data$'KI', main = paste("KI"), xlab = 'Surface Area', ylab= "KI SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(0e00, 5e10), xlim= c(0, 30))
-  legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
+  #legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
   plot(data$'SurfaceArea', data$'KII', main = paste("KII"), xlab = 'Surface Area', ylab= "KII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(-1e10, 2e10), xlim= c(0, 30))
   plot(data$'SurfaceArea', data$'KIII', main = paste("KIII"), xlab = 'Surface Area', ylab= "KIII SIF Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(-1e10, 1e10), xlim= c(0, 30))
   plot(data$'SurfaceArea', data$'G', main = paste("G"), xlab = 'Surface Area', ylab= "G Value", pch= pchvalue[data$'FractureNum'], col = data$'Colour', cex = data$'SurfaceArea'/data$'MaxSurfaceArea', ylim = c(0e00, 10e10), xlim= c(0, 30))
@@ -229,7 +230,7 @@ SIF_plot <- function(filename, SA_filename){
   
   # Mean graphs.
   plot(data_means$'SurfaceArea', data_means$'KI', main = paste("KI Mean"), xlab = 'Surface Area', ylab= "KI Avg SIF Value", pch= pchvalue[data_means$'FractureNum'])
-  legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
+  #legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
   plot(data_means$'SurfaceArea', data_means$'KII', main = paste("KII Mean"), xlab = 'Surface Area', ylab= "KII Avg SIF Value", pch= pchvalue[data_means$'FractureNum'])
   plot(data_means$'SurfaceArea', data_means$'KIII', main = paste("KIII Mean"), xlab = 'Surface Area', ylab= "KIII Avg SIF Value", pch= pchvalue[data_means$'FractureNum'])
   plot(data_means$'SurfaceArea', data_means$'G', main = paste("G Mean"), xlab = 'Surface Area', ylab= "Avg G Value", pch= pchvalue[data_means$'FractureNum'])
@@ -239,7 +240,7 @@ SIF_plot <- function(filename, SA_filename){
   
   # Min graphs.
   plot(data_mins$'KI.SA', data_mins$'KI', main = paste("KI Minimum Value"), xlab = 'Surface Area', ylab= "KI Min SIF Value", col = data_mins$'KI.Colour', pch= pchvalue[data_mins$'FractureNum'])
-  legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
+  #legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
   plot(data_mins$'KII.SA', data_mins$'KII', main = paste("KII Minimum Value"), xlab = 'Surface Area', ylab= "KII Min SIF Value", col = data_mins$'KII.Colour', pch= pchvalue[data_mins$'FractureNum'])
   plot(data_mins$'KIII.SA', data_mins$'KIII', main = paste("KIII Minimum Value"), xlab = 'Surface Area', ylab= "KIII Min SIF Value", col = data_mins$'KIII.Colour', pch= pchvalue[data_mins$'FractureNum'])
   plot(data_mins$'G.SA', data_mins$'G', main = paste("G Minimum Value"), xlab = 'Surface Area', ylab= "Min G Value", col = data_mins$'G.Colour', pch= pchvalue[data_mins$'FractureNum'])
@@ -249,7 +250,7 @@ SIF_plot <- function(filename, SA_filename){
   
   # Max graphs.
   plot(data_maxs$'KI.SA', data_maxs$'KI', main = paste("KI Max Value"), xlab = 'Surface Area', ylab= "KI Max SIF Value", col = data_maxs$'KI.Colour', pch= pchvalue[data_maxs$'FractureNum'])
-  legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
+  #legend("topright", legend = fracture_names, pch = pchvalue, col = 'black')
   plot(data_maxs$'KII.SA', data_maxs$'KII', main = paste("KII Max Value"), xlab = 'Surface Area', ylab= "KII Max SIF Value", col = data_maxs$'KII.Colour', pch= pchvalue[data_maxs$'FractureNum'])
   plot(data_maxs$'KIII.SA', data_maxs$'KIII', main = paste("KIII Max Value"), xlab = 'Surface Area', ylab= "KIII Max SIF Value", col = data_maxs$'KIII.Colour', pch= pchvalue[data_maxs$'FractureNum'])
   plot(data_maxs$'G.SA', data_maxs$'G', main = paste("Max G Value"), xlab = 'Surface Area', ylab= "Max G Value", col = data_maxs$'G.Colour', pch= pchvalue[data_maxs$'FractureNum'])
