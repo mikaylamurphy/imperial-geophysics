@@ -43,25 +43,14 @@ SIF_plot <- function(filename){
   # Removing all columns except FractureNum and Max K Value.
   fractureRadii <- fractureRadii[ ,c(1,17)]
   
+  # Eliminate rows with K or G values above threshold value of 1e+11 (100 GPa, 10x Young's Modulus) and KI values below zero.
   maxKvalue <- 1e+11
-  print(maxKvalue)s
-  # print(fractureRadii)
-  # print(data[720:730,])
-  # 
-  # # Adding max K values to data dataframe as numeric values.
-  # data$'MaxKValue' <- 0
-  # data$'MaxKValue' <- sapply(data$'FractureNum', function(x) {fractureRadii[x-1,2]})
-  # #data <- merge(fractureRadii, data, by= 'FractureNum', sort = FALSE)
-  # data[,15] <- lapply(data[,15], function(x) as.numeric(as.character(x)))
-  # print(data[720:730,])
-
   data <- subset(data, abs(data$'KI') < maxKvalue & abs(data$'KII') < maxKvalue & abs(data$'KIII') < maxKvalue & abs(data$'G' < maxKvalue))
 
   # Preparing symbols and their sizes for plot.
   pchvalue <- c(20, 3, 2, 17, 8, 15, 18, 1)
   pchvalue <- rep(pchvalue, length.out = num_of_fractures)
   
-  dev.off()
   # Making points from the first step blue and the last step red.
   colours <- rep('black', num_of_steps)
   colours[1] <- 'blue'
